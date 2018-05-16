@@ -1,0 +1,66 @@
+﻿@model MyMVCProject.Models.ReadingLog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReadingLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Reader.ReaderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reader.ReaderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReaderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReaderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClockIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClockIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClockOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClockOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailID" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Readers" EntityType="MyDataBaseModel.Reader" />
+    <EntitySet Name="ReadingLogs" EntityType="MyDataBaseModel.ReadingLog" />
+    <AssociationSet Name="FK__ReadingLo__Reade__6FE99F9F" Association="MyDataBaseModel.FK__ReadingLo__Reade__6FE99F9F">
+      <End Role="Reader" EntitySet="Readers" />
+      <End Role="ReadingLog" EntitySet="ReadingLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Reader">
+    <Key>
+      <PropertyRef Name="ReaderId" />
+    </Key>
+    <Property Name="ReaderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReaderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ReadingLogs" Relationship="MyDataBaseModel.FK__ReadingLo__Reade__6FE99F9F" FromRole="Reader" ToRole="ReadingLog" />
+  </EntityType>
+  <EntityType Name="ReadingLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ReaderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClockIn" Type="DateTime" Precision="3" />
+    <Property Name="ClockOut" Type="DateTime" Precision="3" />
+    <Property Name="BookName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReaderId" Type="Int32" />
+    <NavigationProperty Name="Reader" Relationship="MyDataBaseModel.FK__ReadingLo__Reade__6FE99F9F" FromRole="ReadingLog" ToRole="Reader" />
+  </EntityType>
+  <Association Name="FK__ReadingLo__Reade__6FE99F9F">
+    <End Type="MyDataBaseModel.Reader" Role="Reader" Multiplicity="0..1" />
+    <End Type="MyDataBaseModel.ReadingLog" Role="ReadingLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reader">
+        <PropertyRef Name="ReaderId" />
+      </Principal>
+      <Dependent Role="ReadingLog">
+        <PropertyRef Name="ReaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
