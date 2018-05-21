@@ -97,3 +97,8 @@ C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\M
 C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\obj\Debug\MyMVCProject.dll
 C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\obj\Debug\MyMVCProject.pdb
 C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\obj\Debug\MyMVCProject.csprojResolveAssemblyReference.cache
+C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\bin\Gnostice.StarDocsSDK.dll
+C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\bin\Newtonsoft.Json.dll
+C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\bin\RestSharp.dll
+C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\bin\Newtonsoft.Json.xml
+C:\Users\Owner\Documents\Visual Studio 2015\Projects\MyMVCProject\MyMVCProject\MyMVCProject\bin\RestSharp.xml

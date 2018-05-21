@@ -35,9 +35,10 @@ namespace MyMVCProject.Controllers
                 Console.WriteLine(ex.InnerException.Message);
             }
 
-            return View();
+            return RedirectToAction("ReaderList", "Reader");
         }
 
+        [HttpGet]
         public ActionResult ReaderList()
         {
 
@@ -60,7 +61,34 @@ namespace MyMVCProject.Controllers
             return View(readingLogList);
         }
 
-        
-        
+        [HttpGet]
+        public ActionResult DeleteReader(Reader reader, int id)
+        {
+            string readerName = " ";
+            MyDataBaseEntities dc = new MyDataBaseEntities();
+            var reader_data = dc.Reader.Where(a => a.ReaderId == id).FirstOrDefault();
+            if (reader_data != null)
+            {
+                readerName = reader_data.ReaderName;
+                ViewBag.readerId = id;
+                ViewBag.readerName = readerName;
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteReader(int id)
+        {
+            
+            MyDataBaseEntities dc = new MyDataBaseEntities();
+            
+            var readerId = dc.Reader.Find(id);
+            dc.Reader.Remove(readerId);
+            dc.SaveChanges();
+            return RedirectToAction("ReaderList", "Reader");
+        }
+
+
     }
 }

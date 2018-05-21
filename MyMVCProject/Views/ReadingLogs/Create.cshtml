@@ -3,70 +3,77 @@
 @{
     ViewBag.Title = "Create";
 }
+<div class="form-horizontal">
+    <h4>Search New Books</h4>
+    <p>
+        <input type="search" placeholder="Title or Author" id="bookname" />
+        <input type="button" value="Search" id="BookSearch" />
+    </p>
+</div>
+    <div id="results">
 
-<h2>ReadingLog</h2>
+    </div>
 
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Add New Books</h4>
-        <hr />
-        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReaderName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReaderName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReaderName, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+            <h4>Add New Books</h4>
+            <hr />
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ReaderName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ReaderName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ReaderName, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.ClockIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClockIn, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ClockIn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClockOut, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClockOut, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ClockOut, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BookName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>*@
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.ClockIn, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ClockIn, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ClockIn, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ClockOut, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ClockOut, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ClockOut, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.ReaderId, "ReaderId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ReaderId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ReaderId, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.BookName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            @*<h4>Continue Reading</h4>
+                <div class="form-group">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.ReaderId, "ReaderId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ReaderId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ReaderId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        @*<h4>Continue Reading</h4>
-        <div class="form-group">
-
-        </div>*@
+                </div>*@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -74,12 +81,52 @@
                 </div>
             </div>
         </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        <p>
+            <h4>@Html.ActionLink("BookList", "BookList", "ReadingLogs")</h4>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        </p>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*scripts for ajax*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script></script>
+    <script type="text/javascript">
+
+        document.getElementById('BookSearch').addEventListener('click', bookSearch, false)
+
+        function bookSearch() {
+            var search = document.getElementById('bookname').value
+            document.getElementById('results').innerHTML = ""
+            console.log(search)
+            $.ajax({
+                url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
+                datatype: "json",
+                success: function (data) {
+                    for (i = 0; i < data.items.length; i++) {
+                        results.innerHTML += "<h4>" + data.items[i].volumeInfo.title + "</h4>"
+                        //results.innerHTML += "<h4>" + "Author" + "</h4>"
+                        //for (j = 0; ((typeof (data.items[i].volumeInfo.authors != "undefined")) && (j < data.items[i].volumeInfo.authors.length)); j++)
+                        //    {
+
+                        //    results.innerHTML += "<h5>" + data.items[i].volumeInfo.authors[j] + "</h5>"
+
+                        //}
+                        if (typeof (data.items[i].volumeInfo.imageLinks) != "undefined") {
+                            results.innerHTML += "<img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + ">"
+                        }
+                        results.innerHTML += "<br" + "  " + "</br>"
+                    }
+                    console.log(data)
+                },
+                type: 'GET'
+            });
+
+        }
+    </script>

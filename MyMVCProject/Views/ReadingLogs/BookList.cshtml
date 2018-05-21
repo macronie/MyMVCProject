@@ -4,11 +4,12 @@
     ViewBag.Title = "BookList";
 }
 
+
 <h2>BookList</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("BookList", "BookList", "ReadingLogs")
-</p>
+</p>*@
 <table class="table">
     <tr>
         @*<th>
@@ -23,10 +24,10 @@
         <th>
             @Html.DisplayNameFor(model => model.BookName)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Author)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Reader.ReaderName)
         </th>*@
         <th></th>
@@ -46,10 +47,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.BookName)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.Author)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Reader.ReaderName)
         </td>*@
         <td>
@@ -61,3 +62,4 @@
 }
 
 </table>
+
